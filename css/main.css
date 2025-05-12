@@ -1,0 +1,141 @@
+/* Fonte personalizada */
+@font-face {
+  font-family: graffiti;
+  src: url(https://youtu.be/SnZBwzj8Zyw); /* Restaurando o link original */
+}
+
+/* Estilo do vídeo em background */
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+/* Overlay do vídeo */
+.vidoverlay {
+  position: fixed;
+  mix-blend-mode: screen;
+  opacity: 50%;
+}
+
+/* Fonte personalizada aplicada */
+.graffiti {
+  font-family: graffiti, sans-serif;
+}
+
+/* Toggle invisível */
+#overlay-toggle {
+  position: absolute;
+  display: none;
+}
+
+/* Overlay genérico */
+.overlay {
+  z-index: 1;
+  background-color: #000001;
+}
+
+.overlay label {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vw;
+  color: #fff;
+  font-size: 2rem;
+}
+
+.no-hover {
+  display: block;
+}
+
+.fullscreen {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+/* Estilo base do body */
+body {
+  background-color: #000001 !important;
+  color: #fff !important;
+}
+
+/* Links com hover suave */
+.hover {
+  text-decoration: none;
+  color: gray !important;
+  transition: 0.4s !important;
+}
+
+.hover:hover {
+  color: #fff !important;
+  transition: 0.4s !important;
+}
+
+/* Span com quebra de linha */
+span::before {
+  content: '\A';
+  white-space: pre;
+}
+
+/* Centralizador de elementos */
+#center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Animação do overlay ao ativar toggle */
+#overlay-toggle:checked ~ .overlay {
+  animation-fill-mode: forwards;
+  animation-name: fade, hide;
+  animation-delay: 0s, 600ms;
+  animation-duration: 600ms, 1ms;
+}
+
+#overlay-toggle:checked ~ .overlay label {
+  animation-fill-mode: forwards;
+  animation-name: fade;
+  animation-delay: 0s;
+  animation-duration: 500ms;
+}
+
+/* Canvas de fundo */
+#canvas-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* Exibe overlay diferente conforme suporte a hover */
+@media (hover: hover) {
+  .overlayhover {
+    display: block;
+  }
+
+  .overlayno-hover {
+    display: none;
+  }
+}
+
+/* Animações */
+@keyframes fade {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hide {
+  to {
+    visibility: hidden;
+  }
+}
